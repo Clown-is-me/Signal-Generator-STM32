@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Анализатор сигналов STM32</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="presentation-layout">
+        <!-- Заголовок -->
+        <header class="presentation-header">
+            <div class="header-content">
+                <h1>Генерация сигналов STM32</h1>
+                <p>Визуализация полифонических сигналов</p>
+            </div>
+            <div class="header-controls">
+                <button id="connectBtn" class="presentation-btn primary">Подключить</button>
+                <button id="clearBtn" class="presentation-btn secondary">Очистить</button>
+                <div class="connection-status">
+                    <div class="status-indicator" id="statusIndicator"></div>
+                    <span id="statusText">Не подключено</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Основное содержимое -->
+        <main class="presentation-content">
+            <!-- Графики -->
+            <section class="charts-section">
+                <div class="chart-group">
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Основной сигнал</h3>
+                            <span class="chart-description">Синусоидальный сигнал</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="mainChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Случайный сигнал</h3>
+                            <span class="chart-description">Дополнительная компонента</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="randomChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card">
+                        <div class="chart-header">
+                            <h3>Результирующий сигнал</h3>
+                            <span class="chart-description">Полифоническая сумма</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="combinedChart"></canvas>
+                        </div>
+                    </div>
+
+                    <div class="chart-card wide">
+                        <div class="chart-header">
+                            <h3>Сравнительный анализ</h3>
+                            <span class="chart-description">Все компоненты сигнала</span>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="comparisonChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Панель логов -->
+            <aside class="logs-sidebar">
+                <div class="logs-header">
+                    <h3>Журнал событий</h3>
+                    <button id="clearLogsBtn" class="presentation-btn secondary" style="padding: 4px 8px; font-size: 12px;">
+                        Очистить
+                    </button>
+                </div>
+                <div class="logs-container" id="logContainer">
+                    <div class="log-entry">
+                        <span class="log-time">12:00:00</span>
+                        <span class="log-message">Система инициализирована</span>
+                    </div>
+                </div>
+            </aside>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
